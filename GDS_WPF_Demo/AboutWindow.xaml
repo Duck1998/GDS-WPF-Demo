@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GDS_WPF_Demo"
         mc:Ignorable="d"
-        Title="About GameData Swticher WPF Demo" Height="450" Width="600" ResizeMode="NoResize">
+        Title="About GameData Swticher WPF Demo" Height="450" Width="600" MinWidth="600" MinHeight="450">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
