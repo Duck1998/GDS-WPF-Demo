@@ -1,0 +1,105 @@
+﻿<Window x:Class="GDS_WPF_Demo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:GDS_WPF_Demo"
+        mc:Ignorable="d"
+        Title="GameData Switcher WPF Demo" Height="550" Width="550" MinWidth="550" MinHeight="550">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <Menu VerticalAlignment="Top" Height="30" Grid.ColumnSpan="2">
+            <MenuItem Header="Setting" Height="30" Margin="4,0,2,0" FontSize="14">
+                <MenuItem Header="Backup logs" IsCheckable="True"/>
+                <Separator/>
+                <MenuItem Header="Delete all logs"/>
+            </MenuItem>
+            <MenuItem Header="Help" Height="30" Margin="2,0" FontSize="14">
+                <MenuItem Header="Report issues"/>
+                <MenuItem Header="About"/>
+            </MenuItem>
+            <MenuItem Header="Exit" Height="30" Margin="2,0" FontSize="14"/>
+        </Menu>
+        <Label Content="GameData folder(s) found:" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Padding="0,5,5,5" Width="188"/>
+        <ListBox Margin="20,60,10,70" Grid.RowSpan="2" FontSize="14">
+            <ListBoxItem Content="ListBoxItem"/>
+        </ListBox>
+        <Button Content="Refresh" Margin="20,0,10,20" VerticalAlignment="Bottom" Height="40" FontSize="16" FontFamily="Microsoft YaHei UI" Grid.Row="1"/>
+        <Grid Grid.Column="1" Margin="10,30,20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Selected GameData:" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Bottom" FontSize="14" Padding="0,5,5,0"/>
+                <xctk:MaskedTextBox Margin="5,0,0,5" Grid.Row="1" TextWrapping="Wrap" Text="MaskedTextBox" VerticalContentAlignment="Center" FontSize="14" IsReadOnly="True"/>
+                <Button Content="View" Grid.Column="1" Margin="10,-10,5,5" FontSize="14" Grid.Row="1"/>
+                <Label Content="Name:" HorizontalAlignment="Left" Margin="0" Grid.Row="2" VerticalAlignment="Bottom" FontSize="14" Padding="0,5,5,0"/>
+                <xctk:MaskedTextBox Margin="5,0,0,5" Grid.Row="3" TextWrapping="Wrap" Text="MaskedTextBox" VerticalContentAlignment="Center" FontSize="14" IsReadOnly="True"/>
+                <Button Content="Rename" Grid.Column="1" Margin="10,-10,5,5" Grid.Row="3" FontSize="14"/>
+            </Grid>
+            <Grid Margin="0" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Button Content="Clone GD" Margin="5" Grid.Row="2" FontSize="16"/>
+                <Button Content="Delete GD" Grid.Column="1" Margin="5" Grid.Row="2" FontSize="16"/>
+                <Button Content="Set as Default" Margin="5" Grid.ColumnSpan="2" FontSize="16"/>
+                <Button Content="Create new GameData" Margin="5" Grid.Row="1" Grid.ColumnSpan="2" FontSize="16"/>
+            </Grid>
+        </Grid>
+        <GroupBox Grid.Column="1" Header="Launcher" Margin="10,5,20,20" Grid.Row="1" FontSize="14">
+            <Grid Margin="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Button Content="Launch KSP" Margin="5" Grid.ColumnSpan="2" FontSize="16"/>
+                <ComboBox Margin="5" Grid.Row="1" Grid.ColumnSpan="2" VerticalContentAlignment="Center">
+                    <ComboBoxItem Content="Default graphic API (DirectX 9)" IsSelected="True"/>
+                    <ComboBoxItem Content="DirectX 11"/>
+                    <ComboBoxItem Content="DirectX 12"/>
+                    <ComboBoxItem Content="OpenGL"/>
+                    <ComboBoxItem Content="OpenGL (core profile)"/>
+                </ComboBox>
+                <ComboBox Margin="5" Grid.Row="2" Grid.ColumnSpan="2" VerticalContentAlignment="Center">
+                    <ComboBoxItem Content="Default window behaviour" IsSelected="True"/>
+                    <ComboBoxItem Content="Borderless window"/>
+                    <ComboBoxItem Content="Force fullscreen"/>
+                </ComboBox>
+                <CheckBox Content="x64" Margin="5" Grid.Row="3" VerticalContentAlignment="Center"/>
+                <CheckBox Content="Exit after launch" Grid.Column="1" Margin="5" Grid.Row="3" VerticalContentAlignment="Center"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
