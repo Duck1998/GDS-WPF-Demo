@@ -72,7 +72,7 @@ namespace GDS_WPF_Demo
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            Environment.Exit(0);
+            Application.Current.Shutdown();
         }
     }
 }
