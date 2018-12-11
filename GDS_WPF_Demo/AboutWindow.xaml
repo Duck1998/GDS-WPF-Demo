@@ -1,0 +1,35 @@
+﻿<Window x:Name="About" x:Class="GDS_WPF_Demo.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GDS_WPF_Demo"
+        mc:Ignorable="d"
+        Title="About GameData Swticher WPF Demo" Height="450" Width="600" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Margin="0,0,20,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="GitHub" Content="GitHub Source" Margin="5" Grid.Row="2" FontSize="16" Click="GitHub_Click"/>
+            <Button x:Name="Forum" Content="Forum Page" Margin="5" Grid.Row="3" FontSize="16" IsEnabled="False" Click="Forum_Click"/>
+            <Button x:Name="SpaceDock" Content="SpaceDock" Margin="5" Grid.Row="4" FontSize="16" IsEnabled="False" Click="SpaceDock_Click"/>
+            <Button x:Name="ReportIssue" Content="Report an issue" Margin="5" Grid.Row="5" FontSize="16" Click="ReportIssue_Click"/>
+            <Button x:Name="Patreon" Content="Patreon" Margin="5" Grid.Row="6" FontSize="16" IsEnabled="False" Click="Patreon_Click"/>
+            <Button x:Name="OK" Content="OK" Margin="5" Grid.Row="7" FontSize="16" Click="OK_Click"/>
+            <Label x:Name="AppName" Content="GameData Switcher" Margin="5,5,5,0" FontSize="20" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" FontWeight="Bold" Padding="0,5"/>
+            <Label x:Name="AppVer" Content="WPF Demo vx.x.x-alpha" Margin="5,0,5,5" Grid.Row="1" HorizontalContentAlignment="Center" FontSize="16" Padding="5"/>
+        </Grid>
+    </Grid>
+</Window>
