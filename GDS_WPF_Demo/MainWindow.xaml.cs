@@ -35,10 +35,44 @@ namespace GDS_WPF_Demo
 
             return System.Reflection.Assembly.Load(bytes);
         }
+
         public MainWindow()
         {
             AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(CurrentDomain_AssemblyResolve);
             InitializeComponent();
+        }
+
+        private void BackupLogs_Click(object sender, RoutedEventArgs e)
+        {
+            if(BackupLogs.IsChecked)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void DeleteAllLogs_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ReportIssue_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Duck1998/GDS_WPF_Demo/issues/new");
+        }
+
+        private void About_Click(object sender, RoutedEventArgs e)
+        {
+            AboutWindow window = new AboutWindow();
+            window.Show();
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
