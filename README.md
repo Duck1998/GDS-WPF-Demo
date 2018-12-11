@@ -2,7 +2,7 @@
 ## Introduction
 [GameData Switcher][1] is a useful tool that helps you manage multiple GameData folders to switch between different mod sets. However the program still uses outdated WinForms which lacks flexibility and high DPI support.
 
-I'm working to create a more powerful version of GDS. Firstly I tried to recreat GDS's UI with WPF, therefore it is possible to resize program window without problem and high DPI support is great.
+I'm working to create a more powerful version of GDS. Firstly I tried to recreate GDS's UI with WPF, therefore it is possible to resize program window without problem and high DPI support is great.
 
 For now this project is only a UI Demo with **NO** actual function.
 
