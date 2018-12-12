@@ -133,7 +133,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\sq.ico" />
+    <Resource Include="Resources\sq.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\sq.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
