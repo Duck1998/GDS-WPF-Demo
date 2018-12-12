@@ -22,7 +22,7 @@
                 <MenuItem x:Name="DeleteAllLogs" Header="Delete all logs" Click="DeleteAllLogs_Click"/>
             </MenuItem>
             <MenuItem x:Name="Help" Header="Help" Height="30" Margin="2,0" FontSize="14">
-                <MenuItem x:Name="ReportIssues" Header="Report issues" Click="ReportIssue_Click"/>
+                <MenuItem x:Name="ReportIssue" Header="Report an issue" Click="ReportIssue_Click"/>
                 <MenuItem x:Name="About" Header="About" Click="About_Click"/>
             </MenuItem>
             <MenuItem x:Name="Exit" Header="Exit" Height="30" Margin="2,0" FontSize="14" Click="Exit_Click"/>
@@ -48,12 +48,12 @@
                     <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-                <Label x:Name="LabelSelectedGD" Content="Selected GameData:" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Bottom" FontSize="14" Padding="0,5,5,0"/>
-                <TextBox x:Name="TextBoxGD" Margin="5,0,0,5" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalContentAlignment="Center" FontSize="14" IsReadOnly="True"/>
-                <Button x:Name="ViewGD" Content="View" Grid.Column="1" Margin="10,-10,5,5" FontSize="14" Grid.Row="1"/>
-                <Label x:Name="LabelGDName" Content="Name:" HorizontalAlignment="Left" Margin="0" Grid.Row="2" VerticalAlignment="Bottom" FontSize="14" Padding="0,5,5,0"/>
-                <TextBox x:Name="TextBoxName" Margin="5,0,0,5" Grid.Row="3" TextWrapping="Wrap" Text="TextBox" VerticalContentAlignment="Center" FontSize="14" IsReadOnly="True"/>
-                <Button x:Name="RenameGD" Content="Rename" Grid.Column="1" Margin="10,-10,5,5" Grid.Row="3" FontSize="14"/>
+                <Label x:Name="LabelSelectedGD" Content="Selected GameData:" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Bottom" FontSize="14" Padding="5,5,5,0" VerticalContentAlignment="Bottom"/>
+                <TextBox x:Name="TextBoxGD" Margin="5,0,0,5" Grid.Row="1" TextWrapping="Wrap" VerticalContentAlignment="Center" FontSize="14" IsReadOnly="True" Focusable="False" IsEnabled="False"/>
+                <Button x:Name="ViewGD" Content="View" Grid.Column="1" Margin="10,-10,5,5" FontSize="14" Grid.Row="1" IsEnabled="False"/>
+                <Label x:Name="LabelGDName" Content="Name:" HorizontalAlignment="Left" Margin="0" Grid.Row="2" VerticalAlignment="Bottom" FontSize="14" Padding="5,5,5,0" VerticalContentAlignment="Bottom"/>
+                <TextBox x:Name="TextBoxName" Margin="5,0,0,5" Grid.Row="3" TextWrapping="Wrap" VerticalContentAlignment="Center" FontSize="14" IsReadOnly="True" Focusable="False" IsEnabled="False"/>
+                <Button x:Name="RenameGD" Content="Rename" Grid.Column="1" Margin="10,-10,5,5" Grid.Row="3" FontSize="14" IsEnabled="False"/>
             </Grid>
             <Grid Margin="0" Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -65,9 +65,9 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Button x:Name="CloneGD" Content="Clone GD" Margin="5" Grid.Row="2" FontSize="16"/>
-                <Button x:Name="DeleteGD" Content="Delete GD" Grid.Column="1" Margin="5" Grid.Row="2" FontSize="16"/>
-                <Button x:Name="SetDefaultGD" Content="Set as Default" Margin="5" Grid.ColumnSpan="2" FontSize="16"/>
+                <Button x:Name="CloneGD" Content="Clone GD" Margin="5" Grid.Row="2" FontSize="16" IsEnabled="False"/>
+                <Button x:Name="DeleteGD" Content="Delete GD" Grid.Column="1" Margin="5" Grid.Row="2" FontSize="16" IsEnabled="False"/>
+                <Button x:Name="SetDefaultGD" Content="Set as Default" Margin="5" Grid.ColumnSpan="2" FontSize="16" IsEnabled="False"/>
                 <Button x:Name="NewGD" Content="Create new GameData" Margin="5" Grid.Row="1" Grid.ColumnSpan="2" FontSize="16"/>
             </Grid>
         </Grid>
@@ -96,7 +96,7 @@
                     <ComboBoxItem x:Name="BorderlessWindow" Content="Borderless window"/>
                     <ComboBoxItem x:Name="Fullscreen" Content="Force fullscreen"/>
                 </ComboBox>
-                <CheckBox x:Name="CheckBox64" Content="x64" Margin="5" Grid.Row="3" VerticalContentAlignment="Center"/>
+                <CheckBox x:Name="CheckBox64" Content="x64" Margin="5" Grid.Row="3" VerticalContentAlignment="Center" IsChecked="True"/>
                 <CheckBox x:Name="CheckBoxExit" Content="Exit after launch" Grid.Column="1" Margin="5" Grid.Row="3" VerticalContentAlignment="Center"/>
             </Grid>
         </GroupBox>
