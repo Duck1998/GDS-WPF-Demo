@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:GDS_WPF_Demo"
         mc:Ignorable="d"
         Title="GameData Switcher WPF Demo" Height="550" Width="550" MinWidth="550" MinHeight="550">
@@ -50,10 +49,10 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <Label x:Name="LabelSelectedGD" Content="Selected GameData:" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Bottom" FontSize="14" Padding="0,5,5,0"/>
-                <xctk:MaskedTextBox x:Name="TextBoxGD" Margin="5,0,0,5" Grid.Row="1" TextWrapping="Wrap" Text="MaskedTextBox" VerticalContentAlignment="Center" FontSize="14" IsReadOnly="True"/>
+                <TextBox x:Name="TextBoxGD" Margin="5,0,0,5" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalContentAlignment="Center" FontSize="14" IsReadOnly="True"/>
                 <Button x:Name="ViewGD" Content="View" Grid.Column="1" Margin="10,-10,5,5" FontSize="14" Grid.Row="1"/>
                 <Label x:Name="LabelGDName" Content="Name:" HorizontalAlignment="Left" Margin="0" Grid.Row="2" VerticalAlignment="Bottom" FontSize="14" Padding="0,5,5,0"/>
-                <xctk:MaskedTextBox x:Name="TextBoxName" Margin="5,0,0,5" Grid.Row="3" TextWrapping="Wrap" Text="MaskedTextBox" VerticalContentAlignment="Center" FontSize="14" IsReadOnly="True"/>
+                <TextBox x:Name="TextBoxName" Margin="5,0,0,5" Grid.Row="3" TextWrapping="Wrap" Text="TextBox" VerticalContentAlignment="Center" FontSize="14" IsReadOnly="True"/>
                 <Button x:Name="RenameGD" Content="Rename" Grid.Column="1" Margin="10,-10,5,5" Grid.Row="3" FontSize="14"/>
             </Grid>
             <Grid Margin="0" Grid.Row="1">

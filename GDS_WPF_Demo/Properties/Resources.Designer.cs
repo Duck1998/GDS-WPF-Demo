@@ -59,15 +59,5 @@ namespace GDS_WPF_Demo.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
-        /// </summary>
-        internal static byte[] Xceed_Wpf_Toolkit {
-            get {
-                object obj = ResourceManager.GetObject("Xceed_Wpf_Toolkit", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }
