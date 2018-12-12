@@ -59,5 +59,15 @@ namespace GDS_WPF_Demo.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Icon sq {
+            get {
+                object obj = ResourceManager.GetObject("sq", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }
