@@ -7,11 +7,15 @@
         mc:Ignorable="d"
         Title="About GameData Swticher WPF Demo" Height="450" Width="600" MinWidth="600" MinHeight="450">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="1" Margin="0,0,20,20">
+        <Grid Grid.Column="1" Margin="0,0,20,20" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -31,5 +35,7 @@
             <Label x:Name="AppName" Content="GameData Switcher" Margin="5,5,5,0" FontSize="20" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" FontWeight="Bold" Padding="0,5"/>
             <Label x:Name="AppVer" Content="WPF Demo vx.x.x-alpha" Margin="5,0,5,5" Grid.Row="1" HorizontalContentAlignment="Center" FontSize="16" Padding="5"/>
         </Grid>
+        <Image Margin="20,20,20,0" Source="Resources/sq.png"/>
+        <TextBlock  Margin="20,0,20,20" Grid.Row="1" FontSize="16" TextAlignment="Center"><Run FontWeight="Bold" Text="GameData Switcher WPF Demo"/><Run Text="&#xD;&#xA;WPF adaptation &amp; enhancements"/><LineBreak/><Run Text="by Duck1998&#xD;&#xA;"/><LineBreak/><Run FontWeight="Bold" Text="Original GameData Switcher"/><LineBreak/><Run Text="Created by Icecovery Studio"/><LineBreak/><Span><Run Text="Development: Icecovery"/></Span><LineBreak/><Span><Run Text="Logo Design: 01010101lzy"/></Span><LineBreak/><Span><Run Text="Final Check: Acea"/></Span><LineBreak/><Span><Run Text="Special Thanks: linuxgurugamer"/></Span><LineBreak/><Span><Run Text="(For his hard work to fix many errors)"/></Span><LineBreak/><Run/></TextBlock>
     </Grid>
 </Window>
