@@ -94,7 +94,6 @@
                 <ComboBox x:Name="WindowBehaviour" Margin="5" Grid.Row="2" Grid.ColumnSpan="2" VerticalContentAlignment="Center">
                     <ComboBoxItem x:Name="DefaultBehaviour" Content="Default window behaviour" IsSelected="True"/>
                     <ComboBoxItem x:Name="BorderlessWindow" Content="Borderless window"/>
-                    <ComboBoxItem x:Name="Fullscreen" Content="Force fullscreen"/>
                 </ComboBox>
                 <CheckBox x:Name="CheckBox64" Content="x64" Margin="5" Grid.Row="3" VerticalContentAlignment="Center" IsChecked="True"/>
                 <CheckBox x:Name="CheckBoxExit" Content="Exit after launch" Grid.Column="1" Margin="5" Grid.Row="3" VerticalContentAlignment="Center"/>
