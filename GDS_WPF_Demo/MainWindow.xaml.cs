@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace GDS_WPF_Demo
 {
@@ -24,14 +26,22 @@ namespace GDS_WPF_Demo
 
         string[] GameDataList = new string[99]; //stupid but works :D
 
-        string LOC = System.Environment.CurrentDirectory;
+        string LOC = Environment.CurrentDirectory;
 
         //default setting
-        string[] default_setting = new string[5]
+        string[] default_setting_x64 = new string[5]
         {
             "Hardware = 0",
             "Window = 0",
             "X64 = 1",
+            "Exit = 0",
+            "BackupLog = 0"
+        };
+        string[] default_setting = new string[5]
+        {
+            "Hardware = 0",
+            "Window = 0",
+            "X64 = 0",
             "Exit = 0",
             "BackupLog = 0"
         };
@@ -75,9 +85,110 @@ namespace GDS_WPF_Demo
             InitializeComponent();
         }
 
+        private void MainWindow_Init(object sender, EventArgs e)
+        {
+            //check environment
+            if (!File.Exists(LOC + "/KSP_x64.exe") && !File.Exists(LOC + "/KSP.exe"))
+            {
+                MessageBox.Show("Cannot found executable file of KSP, please make sure this application is under KSP root folder, and try again.\nApplication will exit." , "File Not Found" , MessageBoxButton.OK , MessageBoxImage.Error);
+                Application.Current.Shutdown();
+            }
+            if (!File.Exists(LOC + "/KSP_x64.exe") || !Environment.Is64BitOperatingSystem)
+            {
+                CheckBox64.IsChecked = false;
+                CheckBox64.IsEnabled = false;
+                CheckBox64.Content = "no x64";
+            }
+
+            //check setting
+            string _buff;
+            if (File.Exists(LOC + "/GameDataSwitcherSetting.data"))
+            {
+                //read setting
+                using (StreamReader setting = new StreamReader(LOC + "/GameDataSwitcherSetting.data"))
+                {
+                    _buff = setting.ReadToEnd();
+                }
+                Regex _reg = new Regex(@"[a-zA-Z_]\w*\s*=\s*(\d+(?!\.|x|e|d|m)u?)|^0x([\da-f]+(?!\.|x|m)u?)");
+                MatchCollection mc = _reg.Matches(_buff);
+                Dictionary<string, int> _mydic = new Dictionary<string, int>();
+                foreach (Match nObj in mc)
+                {
+                    string _obj = nObj.Value;
+                    _obj = _obj.Replace(" ", "");
+                    _mydic.Add(_obj.Split('=')[0], Convert.ToInt32(_obj.Split('=')[1]));
+                }
+                switch (_mydic["Hardware"])
+                {
+                    case 0:
+                    case 2:
+                        GraphicAPI.SelectedIndex = 0;   //default(DX9), 2 cases for backward compatibility
+                        break;
+                    case 1:
+                        GraphicAPI.SelectedIndex = 3;   //OpenGL
+                        break;
+                    case 3:
+                        GraphicAPI.SelectedIndex = 1;   //DX11
+                        break;
+                    case 4:
+                        GraphicAPI.SelectedIndex = 2;   //DX12
+                        break;
+                    case 5:
+                        GraphicAPI.SelectedIndex = 4;   //OpenGL(core)
+                        break;
+                    default:
+                        GraphicAPI.SelectedIndex = 0;   //fallback
+                        break;
+                }
+                switch (_mydic["Window"])
+                {
+                    case 0:
+                    case 1:
+                        WindowBehaviour.SelectedIndex = _mydic["Window"];
+                        break;
+                    default:
+                        WindowBehaviour.SelectedIndex = 0;  //fullscreen deleted, fallback
+                        break;
+                }
+                if (_mydic["X64"] == 0)
+                {
+                    CheckBox64.IsChecked = false;   //default = true
+                }
+                if (_mydic["Exit"] == 1)
+                {
+                    CheckBoxExit.IsChecked = true;  //default = false
+                }
+                try
+                {
+                    if (_mydic["BackupLog"] == 1)
+                    {
+                        BackupLogs.IsChecked = true;    //default = false
+                    }
+                }
+                catch
+                {
+                    File.AppendAllText(LOC + "/GameDataSwitcherSetting.data", "BackupLog = 0"); //backward compatibility
+                }
+            }
+            else
+            {
+                //create default setting
+                FileStream new_setting = File.Create(LOC + "/GameDataSwitcherSetting.data");
+                new_setting.Close();
+                if (!File.Exists(LOC + "/KSP_x64.exe") || !Environment.Is64BitOperatingSystem)
+                {
+                    File.WriteAllLines(LOC + "/GameDataSwitcherSetting.data", default_setting);
+                }
+                else
+                {
+                    File.WriteAllLines(LOC + "/GameDataSwitcherSetting.data", default_setting_x64);
+                }
+            }
+        }
+
         private void BackupLogs_Click(object sender, RoutedEventArgs e)
         {
-            if(BackupLogs.IsChecked)
+            if (BackupLogs.IsChecked)
             {
 
             }
