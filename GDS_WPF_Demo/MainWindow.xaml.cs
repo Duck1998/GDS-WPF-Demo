@@ -128,6 +128,8 @@ namespace GDS_WPF_Demo
                     _obj = _obj.Replace(" ", "");
                     _mydic.Add(_obj.Split('=')[0], Convert.ToInt32(_obj.Split('=')[1]));
                 }
+
+                //apply setting
                 switch (_mydic["Hardware"])
                 {
                     case 0:
@@ -164,7 +166,7 @@ namespace GDS_WPF_Demo
                 {
                     if(CheckBox64.IsEnabled)    //only when possible to change
                     {
-                        CheckBox64.IsChecked = false;   //default = true
+                        CheckBox64.IsChecked = false;   //default = true, or controlled by check environment
                     }
                 }
                 if (_mydic["Exit"] == 1)
