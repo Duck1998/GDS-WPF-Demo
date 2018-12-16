@@ -28,8 +28,8 @@
             <MenuItem x:Name="Exit" Header="Exit" Height="30" Margin="2,0" FontSize="14" Click="Exit_Click"/>
         </Menu>
         <Label x:Name="LabelGD" Content="GameData folder(s) found:" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Padding="0,5,5,5" Width="188"/>
-        <ListBox x:Name="ListGD" Margin="20,60,10,70" Grid.RowSpan="2" FontSize="14"/>
-        <Button x:Name="Refresh" Content="Refresh" Margin="20,0,10,20" VerticalAlignment="Bottom" Height="40" FontSize="16" FontFamily="Microsoft YaHei UI" Grid.Row="1"/>
+        <ListBox x:Name="ListGD" Margin="20,60,10,70" Grid.RowSpan="2" FontSize="14" SelectionChanged="ListGD_SelectionChanged"/>
+        <Button x:Name="Refresh" Content="Refresh" Margin="20,0,10,20" VerticalAlignment="Bottom" Height="40" FontSize="16" FontFamily="Microsoft YaHei UI" Grid.Row="1" Click="Refresh_Click"/>
         <Grid Grid.Column="1" Margin="10,30,20,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="3*"/>

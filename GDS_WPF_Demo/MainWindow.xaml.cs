@@ -85,6 +85,33 @@ namespace GDS_WPF_Demo
             InitializeComponent();
         }
 
+        public void ReloadList()
+        {
+            ListGD.Items.Clear();
+            int Counter = 0;
+            DirectoryInfo dir = new DirectoryInfo(@".//");
+            foreach (DirectoryInfo dChild in dir.GetDirectories("GameData*"))
+            {
+                if (File.Exists(LOC + "/" + dChild + "/GameDataData.data") == true)
+                {
+                    GameDataList[Counter] = dChild.Name;
+                    ListGD.Items.Add(dChild.Name);
+                    Counter++;
+                }
+            }
+
+            //reset button & textbox
+            TextBoxGD.IsEnabled = false;
+            TextBoxGD.Text = "";
+            TextBoxName.IsEnabled = false;
+            TextBoxName.Text = "";
+            ViewGD.IsEnabled = false;
+            RenameGD.IsEnabled = false;
+            SetDefaultGD.IsEnabled = false;
+            CloneGD.IsEnabled = false;
+            DeleteGD.IsEnabled = false;          
+        }
+
         private void MainWindow_Init(object sender, EventArgs e)
         {
             //check environment
@@ -205,6 +232,37 @@ namespace GDS_WPF_Demo
             {
                 File.WriteAllText(LOC + "/GameData/GameDataData.data", "original");
             }
+
+            //load list
+            ReloadList();
+        }
+
+        private void ListGD_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ListGD.SelectedIndex != -1) //not after refresh
+            {
+                //enable button & textbox
+                TextBoxGD.IsEnabled = true;
+                TextBoxGD.Text = GameDataList[ListGD.SelectedIndex];
+                TextBoxName.IsEnabled = true;
+                TextBoxName.Text = File.ReadAllText(LOC + "/" + TextBoxGD.Text + "/GameDataData.data");
+                ViewGD.IsEnabled = true;
+                RenameGD.IsEnabled = true;
+                SetDefaultGD.IsEnabled = true;
+                CloneGD.IsEnabled = true;
+                DeleteGD.IsEnabled = true;
+                //exclusion for default GD
+                if (GameDataList[ListGD.SelectedIndex] == "GameData")
+                {
+                    SetDefaultGD.IsEnabled = false;
+                    DeleteGD.IsEnabled = false;
+                }
+            }           
+        }
+
+        private void Refresh_Click(object sender, RoutedEventArgs e)
+        {
+            ReloadList();
         }
 
         private void BackupLogs_Click(object sender, RoutedEventArgs e)
