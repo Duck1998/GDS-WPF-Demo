@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GDS_WPF_Demo"
         mc:Ignorable="d"
-        Title="GameData Switcher WPF Demo" Height="550" Width="550" MinWidth="550" MinHeight="550">
+        Title="GameData Switcher WPF Demo" Height="550" Width="550" MinWidth="550" MinHeight="550" Initialized="MainWindow_Init">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>
@@ -28,9 +28,7 @@
             <MenuItem x:Name="Exit" Header="Exit" Height="30" Margin="2,0" FontSize="14" Click="Exit_Click"/>
         </Menu>
         <Label x:Name="LabelGD" Content="GameData folder(s) found:" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Padding="0,5,5,5" Width="188"/>
-        <ListBox x:Name="ListGD" Margin="20,60,10,70" Grid.RowSpan="2" FontSize="14">
-            <ListBoxItem Content="ListBoxItem"/>
-        </ListBox>
+        <ListBox x:Name="ListGD" Margin="20,60,10,70" Grid.RowSpan="2" FontSize="14"/>
         <Button x:Name="Refresh" Content="Refresh" Margin="20,0,10,20" VerticalAlignment="Bottom" Height="40" FontSize="16" FontFamily="Microsoft YaHei UI" Grid.Row="1"/>
         <Grid Grid.Column="1" Margin="10,30,20,0">
             <Grid.RowDefinitions>
@@ -86,10 +84,10 @@
                 <Button x:Name="LaunchKSP" Content="Launch KSP" Margin="5" Grid.ColumnSpan="2" FontSize="16"/>
                 <ComboBox x:Name="GraphicAPI" Margin="5" Grid.Row="1" Grid.ColumnSpan="2" VerticalContentAlignment="Center">
                     <ComboBoxItem x:Name="DX9" Content="Default graphic API (DirectX 9)" IsSelected="True"/>
-                    <ComboBoxItem x:Name="DX11" Content="DirectX 11"/>
-                    <ComboBoxItem x:Name="DX12" Content="DirectX 12"/>
-                    <ComboBoxItem x:Name="OGL" Content="OpenGL"/>
-                    <ComboBoxItem x:Name="OGLc" Content="OpenGL (core profile)"/>
+                    <ComboBoxItem x:Name="DX11" Content="DirectX 11" ToolTip="Saves RAM, may introduce graphic glitch."/>
+                    <ComboBoxItem x:Name="DX12" Content="DirectX 12 (1.3+ only)" ToolTip="Saves RAM, may introduce graphic glitch &amp; poor performance."/>
+                    <ComboBoxItem x:Name="OGL" Content="OpenGL" ToolTip="Saves RAM, may introduce graphic glitch."/>
+                    <ComboBoxItem x:Name="OGLc" Content="OpenGL (core profile)" ToolTip="Saves RAM, more stable than DX11/12 &amp; OpenGL."/>
                 </ComboBox>
                 <ComboBox x:Name="WindowBehaviour" Margin="5" Grid.Row="2" Grid.ColumnSpan="2" VerticalContentAlignment="Center">
                     <ComboBoxItem x:Name="DefaultBehaviour" Content="Default window behaviour" IsSelected="True"/>
