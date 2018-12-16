@@ -93,7 +93,17 @@ namespace GDS_WPF_Demo
                 MessageBox.Show("Cannot found executable file of KSP, please make sure this application is under KSP root folder, and try again.\nApplication will exit." , "File Not Found" , MessageBoxButton.OK , MessageBoxImage.Error);
                 Application.Current.Shutdown();
             }
-            if (!File.Exists(LOC + "/KSP_x64.exe") || !Environment.Is64BitOperatingSystem)
+            if (File.Exists(LOC + "/KSP_x64.exe") && !File.Exists(LOC + "/KSP.exe"))    //after 1.5
+            {
+                CheckBox64.IsEnabled = false;
+                CheckBox64.Content = "x64 only";
+                if (!Environment.Is64BitOperatingSystem)
+                {
+                    LaunchKSP.IsEnabled = false;
+                    LaunchKSP.Content = "Require 64-bit OS to launch";
+                }
+            }
+            else if (!File.Exists(LOC + "/KSP_x64.exe") || !Environment.Is64BitOperatingSystem)
             {
                 CheckBox64.IsChecked = false;
                 CheckBox64.IsEnabled = false;
@@ -152,7 +162,10 @@ namespace GDS_WPF_Demo
                 }
                 if (_mydic["X64"] == 0)
                 {
-                    CheckBox64.IsChecked = false;   //default = true
+                    if(CheckBox64.IsEnabled)    //only when possible to change
+                    {
+                        CheckBox64.IsChecked = false;   //default = true
+                    }
                 }
                 if (_mydic["Exit"] == 1)
                 {
@@ -183,6 +196,12 @@ namespace GDS_WPF_Demo
                 {
                     File.WriteAllLines(LOC + "/GameDataSwitcherSetting.data", default_setting_x64);
                 }
+            }
+
+            //check GameData
+            if (!File.Exists(LOC + "/GameData/GameDataData.data"))
+            {
+                File.WriteAllText(LOC + "/GameData/GameDataData.data", "original");
             }
         }
 
