@@ -139,4 +139,7 @@
     <Resource Include="Resources\sq.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>taskkill /f /im XDesProc.exe</PreBuildEvent>
+  </PropertyGroup>
 </Project>
