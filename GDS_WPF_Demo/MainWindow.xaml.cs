@@ -92,7 +92,7 @@ namespace GDS_WPF_Demo
             DirectoryInfo dir = new DirectoryInfo(@".//");
             foreach (DirectoryInfo dChild in dir.GetDirectories("GameData*"))
             {
-                if (File.Exists(LOC + "/" + dChild + "/GameDataData.data") == true)
+                if (File.Exists(LOC + "/" + dChild + "/GameDataData.data"))
                 {
                     GameDataList[Counter] = dChild.Name;
                     ListGD.Items.Add(dChild.Name);
@@ -215,8 +215,6 @@ namespace GDS_WPF_Demo
             else
             {
                 //create default setting
-                FileStream new_setting = File.Create(LOC + "/GameDataSwitcherSetting.data");
-                new_setting.Close();
                 if (!File.Exists(LOC + "/KSP_x64.exe") || !Environment.Is64BitOperatingSystem)
                 {
                     File.WriteAllLines(LOC + "/GameDataSwitcherSetting.data", default_setting);
