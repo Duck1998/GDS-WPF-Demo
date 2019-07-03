@@ -263,6 +263,16 @@ namespace GDS_WPF_Demo
             ReloadList();
         }
 
+        private void RenameGD_Click(object sender, RoutedEventArgs e)
+        {
+            InputDialog window = new InputDialog("Rename");
+            if (window.ShowDialog() == true)
+            {
+
+            }
+
+        }
+
         private void BackupLogs_Click(object sender, RoutedEventArgs e)
         {
             if (BackupLogs.IsChecked)
